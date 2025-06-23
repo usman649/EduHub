@@ -82,7 +82,7 @@ def statistic_view(request, course_id):
     total_tests = test.count()
     success_tests = test_result.filter(result=True).count()
 
-    success_percent = (success_tests / total_tests * 100)
+    success_percent = (success_tests / total_tests * 100) if total_tests > 0 else 0
     test_result_data = [{"id": test_result.id, "result": test_result.result,"started_at":test_result.started_at,"test_precent":success_percent} for test_result in test_result]
 
     if not followed_curs.course.is_finished:
