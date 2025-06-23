@@ -34,9 +34,11 @@ class CourseSerializer(ModelSerializer):
 class FollowSerializer(ModelSerializer):
     user = serializers.CharField(source="user.username",read_only=True)
     course = serializers.CharField(source="course.title",read_only=True)
+    course_id = serializers.IntegerField(write_only=True)
+
     class Meta:
         model = Follow
-        fields = ("id","user","course")
+        fields = ("id","user","course","course_id")
 
 class TestBasicSerializer(ModelSerializer):
     class Meta:

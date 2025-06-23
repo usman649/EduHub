@@ -23,7 +23,7 @@ from blog.permission import IsStudent, IsTeacher
 def follow_student_view(request):
     serializer = FollowSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
-    serializer.save()
+    serializer.save(user=request.user,course_id=serializer.validated_data['course_id'])
     return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
