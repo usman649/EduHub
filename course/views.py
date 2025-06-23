@@ -141,6 +141,10 @@ class CourseCreate(ModelViewSet):
     permission_classes = [IsTeacher]
 
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
 class LessonCreate(ModelViewSet):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
