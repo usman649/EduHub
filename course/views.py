@@ -103,14 +103,14 @@ def statistic_view(request, course_id):
 def exam_view(request, test_id):
     test = Test.objects.filter(id=test_id).first()
     if not test:
-        return Response(data={"error": "Test ID is required"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data={"error": "Test not found"}, status=status.HTTP_400_BAD_REQUEST)
 
     result_obj = TestBasicModel.objects.filter(user=request.user, test=test).first()
     if not result_obj:
         return Response(data={"error": "Student started test not yet "}, status=status.HTTP_400_BAD_REQUEST)
 
     count = TestBasicModel.objects.filter(user=request.user, test=test).count()
-    if count >= 1:
+    if count >= 2:
         return Response(data={"error": "Student can examine once "}, status=status.HTTP_400_BAD_REQUEST)
 
     now = timezone.now()

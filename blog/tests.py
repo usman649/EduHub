@@ -6,7 +6,7 @@ O‘qituvchilar kurs yaratadi, talabalar kursga obuna bo‘ladi. Har bir kursda 
 - Nested serializers (kurs → darslar → testlar)
 - Custom permissions (`IsTeacher`, `IsStudent`) teachr la oziga obuna bolgan student va natijalani  : studentla ozi obuna bolgan  video darsla va kursla
 - Media uploads (video va fayllar)
-- Throttling (test topshirishni cheklash) testlarni vaqti bu vaqti teacher belgilid 2 minut dan oshsa test natijasi notogri bolsin va boshqa testga kirmasin
+testlarni vaqti bu vaqti teacher belgilid 2 minut dan oshsa test natijasi notogri bolsin va boshqa testga kirmasin
 student faqat bir marta test topshirad
 
 userni  umumiy statistika kursni tugatgandan keyin 

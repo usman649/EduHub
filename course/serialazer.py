@@ -6,7 +6,7 @@ from rest_framework.serializers import ModelSerializer
 class TestSerializer(ModelSerializer):
     class Meta:
         model = Test
-        fields = ("id","lesson","title")
+        fields = ("id","lesson","title","start_date","end_date") #
 
 
 class LessonSerializer(ModelSerializer):
