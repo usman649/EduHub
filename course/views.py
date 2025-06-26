@@ -1,6 +1,8 @@
-from datetime import timezone, timedelta
-from django.utils import timezone
+from datetime import timezone
 from blog.serialazer import UserSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
+from datetime import timedelta
+from django.utils import timezone
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
@@ -149,6 +151,7 @@ class LessonCreate(ModelViewSet):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = [IsTeacher]
+    parser_classes = [MultiPartParser, FormParser] #
 
 
 class TestCreate(ModelViewSet):
